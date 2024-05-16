@@ -7,24 +7,37 @@
 </head>
 <body>
     <div id="myDIV">
-        <p>HAPPY TOUCH</p>
+        <p>HAPPY</p>
     </div>
 
     <h1>SHARE TOUCH</h1>
     <p>BYT TEXTEN ny</p>
-    <!-- Lägg till download attribut i ankartaggar -->
-    <a href="TOUCH.png" download="TOUCH.png">
-        <img src="TOUCH.png" alt="TOUCH" width="300" height="300">
-    </a>
-    <a href="HAPPY.png" download="HAPPY.png">
-        <img src="HAPPY.png" alt="HAPPY" width="300" height="300">
-    </a>
+
+    <div class="image-container">
+        <div class="image-pair">
+            <a href="TOUCH.png" download="TOUCH.png">
+                <img src="TOUCH.png" alt="TOUCH" class="responsive-img">
+            </a>
+            <a href="HAPPY.png" download="HAPPY.png">
+                <img src="HAPPY.png" alt="HAPPY" class="responsive-img">
+            </a>
+        </div>
+        <div class="image-pair">
+            <a href="TOUCH.png" download="TOUCH.png">
+                <img src="TOUCH.png" alt="TOUCH" class="responsive-img">
+            </a>
+            <a href="HAPPY.png" download="HAPPY.png">
+                <img src="HAPPY.png" alt="HAPPY" class="responsive-img">
+            </a>
+        </div>
+    </div>
+
     <p>BYT TEXTEN ny</p>
 
     <script>
         window.onload = function () {
             if ('vibrate' in navigator) {
-                navigator.vibrate([500, 110, 500, 110, 450, 110, 200, 110, 170, 40, 450, 110, 200, 110, 170, 40, 500]);
+                navigator.vibrate([100, 200, 100, 200, 100]);
             } else {
                 console.log('Vibration API not supported on this device.');
             }
