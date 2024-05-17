@@ -1,78 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8">
     <title>Touch and Download</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
     <div id="myDIV">
-      <p>YOU GOT A HAPPY MESSAGE</p>
-      <h1>HAPPY</h1>
+        <p>YOU GOT A HAPPY MESSAGE</p>
+        <h1>HAPPY</h1>
     </div>
 
     <h2>SHARE TOUCH</h2>
-    <p>
-      Send a touch message! Click on the image to feel the vibration and use the
-      button to download the QR code.
-    </p>
+    <p>Send a touch message! Click on the image to feel the vibration and use the button to download the QR code.</p>
 
     <div class="image-container">
-      <div class="image-pair">
-        <img
-          src="TOUCH.png"
-          alt="TOUCH"
-          class="responsive-img"
-          onclick="triggerVibration()"
-        />
-        <button onclick="downloadImage('TOUCH.png')">Download TOUCH</button>
+        <div class="image-pair">
+            <img src="TOUCH.png" alt="TOUCH" class="responsive-img" ontouchstart="triggerVibration()">
+            <button onclick="downloadImage('TOUCH.png')">Download TOUCH</button>
+            
+            <img src="HAPPY.png" alt="HAPPY" class="responsive-img" ontouchstart="triggerVibration()">
+            <button onclick="downloadImage('HAPPY.png')">Download HAPPY</button>
+        </div>
+        <div class="image-pair">
+            <img src="TOUCH.png" alt="TOUCH" class="responsive-img" ontouchstart="triggerVibration()">
+            <button onclick="downloadImage('TOUCH.png')">Download TOUCH</button>
 
-        <img
-          src="HAPPY.png"
-          alt="HAPPY"
-          class="responsive-img"
-          onclick="triggerVibration()"
-        />
-        <button onclick="downloadImage('HAPPY.png')">Download HAPPY</button>
-      </div>
-      <div class="image-pair">
-        <img
-          src="TOUCH.png"
-          alt="TOUCH"
-          class="responsive-img"
-          onclick="triggerVibration()"
-        />
-        <button onclick="downloadImage('TOUCH.png')">Download TOUCH</button>
-
-        <img
-          src="HAPPY.png"
-          alt="HAPPY"
-          class="responsive-img"
-          onclick="triggerVibration()"
-        />
-        <button onclick="downloadImage('HAPPY.png')">Download HAPPY</button>
-      </div>
+            <img src="HAPPY.png" alt="HAPPY" class="responsive-img" ontouchstart="triggerVibration()">
+            <button onclick="downloadImage('HAPPY.png')">Download HAPPY</button>
+        </div>
     </div>
 
     <p>FÖRKLARANDE TEXT</p>
 
     <script>
-      function triggerVibration() {
-        if ('vibrate' in navigator) {
-          navigator.vibrate([100, 200, 100, 200, 100]);
-        } else {
-          console.log('Vibration API not supported on this device.');
+        function triggerVibration() {
+            if ('vibrate' in navigator) {
+                navigator.vibrate([100, 200, 100, 200, 100]);
+            } else {
+                console.log('Vibration API not supported on this device.');
+            }
         }
-      }
 
-      function downloadImage(imageUrl) {
-        const link = document.createElement('a');
-        link.href = imageUrl;
-        link.download = imageUrl.split('/').pop();
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      }
+        function downloadImage(imageUrl) {
+            const link = document.createElement('a');
+            link.href = imageUrl;
+            link.download = imageUrl.split('/').pop();
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
     </script>
-  </body>
+</body>
 </html>
