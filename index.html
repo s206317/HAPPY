@@ -1,50 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>HAPPY</title>
-    <link rel="stylesheet" href="styles.css"/>
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div id="myDIV">
-        <p>YOU GOT A HAPPY MESSAGE</p>
-        <h1>HAPPY</h1>
+      <p>YOU GOT A HAPPY MESSAGE</p>
+      <h1>HAPPY</h1>
     </div>
 
     <h2>SHARE TOUCH</h2>
-    <p>Send a touch message! Download the QR code of the message you want send.</p>
+    <p>
+      Send a touch message! Download the QR code of the message you want to
+      send.
+    </p>
 
     <div class="image-container">
-        <div class="image-pair">
-            <a href="TOUCH.png" download="TOUCH.png">
-                <img src="TOUCH.png" alt="TOUCH" class="responsive-img">
-            </a>
-            
-            <a href="HAPPY.png" download="HAPPY.png">
-                <img src="HAPPY.png" alt="HAPPY" class="responsive-img">
-            </a>
-           
-        </div>
-        <div class="image-pair">
-            <a href="TOUCH.png" download="TOUCH.png">
-                <img src="TOUCH.png" alt="TOUCH" class="responsive-img">
-            </a>
-            <a href="HAPPY.png" download="HAPPY.png">
-                <img src="HAPPY.png" alt="HAPPY" class="responsive-img">
-            </a>
-        </div>
+      <div class="image-pair">
+        <a href="TOUCH.png" download="TOUCH.png">
+          <img
+            src="TOUCH.png"
+            alt="TOUCH"
+            class="responsive-img"
+            onclick="triggerVibration()"
+          />
+        </a>
+
+        <a href="HAPPY.png" download="HAPPY.png">
+          <img
+            src="HAPPY.png"
+            alt="HAPPY"
+            class="responsive-img"
+            onclick="triggerVibration()"
+          />
+        </a>
+      </div>
+      <div class="image-pair">
+        <a href="TOUCH.png" download="TOUCH.png">
+          <img
+            src="TOUCH.png"
+            alt="TOUCH"
+            class="responsive-img"
+            onclick="triggerVibration()"
+          />
+        </a>
+        <a href="HAPPY.png" download="HAPPY.png">
+          <img
+            src="HAPPY.png"
+            alt="HAPPY"
+            class="responsive-img"
+            onclick="triggerVibration()"
+          />
+        </a>
+      </div>
     </div>
 
     <p>FÖRKLARANDE TEXT</p>
 
     <script>
-        window.onload = function () {
-            if ('vibrate' in navigator) {
-                navigator.vibrate([100, 200, 100, 200, 100]);
-            } else {
-                console.log('Vibration API not supported on this device.');
-            }
-        };
+      // Funktion för att trigga vibration
+      function triggerVibration() {
+          if ('vibrate' in navigator) {
+              navigator.vibrate([100, 200, 100, 200, 100]);
+          } else {
+              console.log('Vibration API not supported on this device.');
+          }
+      }
+
+      // Funktion för att trigga vibration när QR-koden skannas
+      function handleQRCodeScanned() {
+          triggerVibration();
+      }
+
+
+      };
     </script>
-</body>
+  </body>
 </html>
