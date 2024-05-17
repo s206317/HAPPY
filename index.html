@@ -19,63 +19,60 @@
 
     <div class="image-container">
       <div class="image-pair">
-        <a href="TOUCH.png" download="TOUCH.png">
-          <img
-            src="TOUCH.png"
-            alt="TOUCH"
-            class="responsive-img"
-            onclick="triggerVibration()"
-          />
-        </a>
+        <img
+          src="TOUCH.png"
+          alt="TOUCH"
+          class="responsive-img"
+          onclick="triggerVibration()"
+        />
+        <button onclick="downloadImage('TOUCH.png')">Download TOUCH</button>
 
-        <a href="HAPPY.png" download="HAPPY.png">
-          <img
-            src="HAPPY.png"
-            alt="HAPPY"
-            class="responsive-img"
-            onclick="triggerVibration()"
-          />
-        </a>
+        <img
+          src="HAPPY.png"
+          alt="HAPPY"
+          class="responsive-img"
+          onclick="triggerVibration()"
+        />
+        <button onclick="downloadImage('HAPPY.png')">Download HAPPY</button>
       </div>
       <div class="image-pair">
-        <a href="TOUCH.png" download="TOUCH.png">
-          <img
-            src="TOUCH.png"
-            alt="TOUCH"
-            class="responsive-img"
-            onclick="triggerVibration()"
-          />
-        </a>
-        <a href="HAPPY.png" download="HAPPY.png">
-          <img
-            src="HAPPY.png"
-            alt="HAPPY"
-            class="responsive-img"
-            onclick="triggerVibration()"
-          />
-        </a>
+        <img
+          src="TOUCH.png"
+          alt="TOUCH"
+          class="responsive-img"
+          onclick="triggerVibration()"
+        />
+        <button onclick="downloadImage('TOUCH.png')">Download TOUCH</button>
+
+        <img
+          src="HAPPY.png"
+          alt="HAPPY"
+          class="responsive-img"
+          onclick="triggerVibration()"
+        />
+        <button onclick="downloadImage('HAPPY.png')">Download HAPPY</button>
       </div>
     </div>
 
     <p>FÖRKLARANDE TEXT</p>
 
     <script>
-      // Funktion för att trigga vibration
       function triggerVibration() {
-          if ('vibrate' in navigator) {
-              navigator.vibrate([100, 200, 100, 200, 100]);
-          } else {
-              console.log('Vibration API not supported on this device.');
-          }
+        if ('vibrate' in navigator) {
+          navigator.vibrate([100, 200, 100, 200, 100]);
+        } else {
+          console.log('Vibration API not supported on this device.');
+        }
       }
 
-      // Funktion för att trigga vibration när QR-koden skannas
-      function handleQRCodeScanned() {
-          triggerVibration();
+      function downloadImage(imageUrl) {
+        const link = document.createElement('a');
+        link.href = imageUrl;
+        link.download = imageUrl.split('/').pop();
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
       }
-
-
-      };
     </script>
   </body>
 </html>
